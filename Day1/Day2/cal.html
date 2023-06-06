@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>calculator</title>
+  <style>
+    #calculator {
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      padding-left: 87px;
+      margin-left: 500px;
+      margin-top: 100px;
+    }
+
+    #result {
+      margin-bottom: 10px;
+    }
+
+    .button {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      font-size: 20px;
+    }
+
+    .operator {
+      background-color: orange;
+      color: white;
+    }
+
+    .clear {
+      background-color: red;
+      color: white;
+    }
+  </style>
+  <link rel="stylesheet" href="cal.css">
+</head>
+<body style="background:grey">
+ <div id="calculator" style="background-color:whitesmoke;">
+   <p style="color:black;"><h1 style="text-align: justify;">Calculator</h1></p>
+    <input type="text" style="width: 60%;" id="result" readonly>
+    <br>
+    <button class="button" onclick="appendOperator('-')">-</button>
+    <button class="button" onclick="appendOperator('*')">*</button>
+    <button class="button" onclick="appendOperator('/')">/</button>
+    <br>
+    <button class="button" onclick="appendOperator('+')">+</button>
+    <button class="button del" onclick="calculatePercentage()">%</button>
+    <button class="button" onclick="appendNumber('9')">9</button>
+    <br>
+    <button class="button" onclick="appendNumber('8')">8</button>
+    <button class="button" onclick="appendNumber('7')">7</button>
+    <button class="button" onclick="appendNumber('6')">6</button>
+    <br>
+    <button class="button" onclick="appendNumber('5')">5</button>
+    <button class="button" onclick="appendNumber('4')">4</button>
+    <button class="button" onclick="appendNumber('3')">3</button>
+    <br>
+    <button class="button" onclick="appendNumber('2')">2</button>
+    <button class="button" onclick="appendNumber('1')">1</button>
+    <button class="button" onclick="appendNumber('0')">0</button>
+    <br>
+    <button class="button del" onclick="clearLastCharacter()">del</button>
+    <button class="button" onclick="calculate()">=</button>
+    <button class="button clear" onclick="clearResult()">C</button>
+  </div>
+  <script>
+    let result = document.getElementById('result');
+
+    function appendNumber(value) {
+      result.value += value;
+    }
+    
+    function appendOperator(operator) {
+  result.value += operator;
+}
+
+    function calculate() {
+      try {
+        result.value = eval(result.value);
+      } catch (error) {
+        result.value = 'Error';
+      }
+    }
+
+    function calculatePercentage() {
+      try {
+        result.value = eval(result.value) / 100;
+      } catch (error) {
+        result.value = 'Error';
+      }
+    }
+
+    function clearLastCharacter() {
+      result.value = result.value.slice(0, -1);
+    }
+
+    function clearResult() {
+      result.value = '';
+    }
+  </script>
+  <script src="cal.js"></script>
+</body>
+</html>
