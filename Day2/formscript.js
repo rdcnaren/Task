@@ -78,27 +78,3 @@ const formData = {
     }
     return tds;
   }
-
-
-
-
-
-
-
-
-
-//   <table class="table">
-//   <thead>
-//     <tr>
-//       <th scope="col">First Name</th>
-//       <th scope="col">Last Name</th>
-//       <th scope="col">Gender</th>
-//       <th scope="col">Address</th>
-//       <th scope="col">Pincode</th>
-//       <th scope="col">Food Type</th>
-//       <th scope="col">State</th>
-//       <th scope="col">Country</th>
-//     </tr>
-//   </thead>
-//   <tbody></tbody>
-// </table>
