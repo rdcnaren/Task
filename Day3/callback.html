@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Countdown and Independence Day</title>
+  <style>
+    #countdown {
+      font-size: 48px;
+      text-align: center;
+      /* margin-top: 275px; */
+      padding-top: 270px;
+    background-image:india-map.svg;
+    }
+  </style>
+  <link rel="stylesheet" href="callback.css">
 </head>
 <body>
-    <h1>Call back hell</h1>
-    <script src="callback.js"></script>
+  
+      <div id="countdown"></div>
+
+  <script>
+    
+    var countdownElement = document.getElementById("countdown");
+
+    function updateCountdown(count) {
+      countdownElement.textContent = count;
+    }
+
+    function startCountdown() {
+      var count = 10;
+
+      updateCountdown(count);
+
+      // Countdown interval
+      var countdownInterval = setInterval(function() {
+        count--;
+
+       
+        updateCountdown(count);
+
+        // Check if countdown is finished
+        if (count === 0) {
+          clearInterval(countdownInterval);
+          countdownElement.textContent = "Happy Independence Day!";
+        }
+      }, 1000);
+    }
+
+    // Start the countdown
+    startCountdown();
+  </script>
 </body>
 </html>
